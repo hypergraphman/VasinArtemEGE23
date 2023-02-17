@@ -4,17 +4,15 @@ with open('26-97.txt') as f:
     for s in f.readlines():
         t, t1 = map(int, s.split())
         a.append((t, t - t1 * 2 - 3))
-a.sort(key=lambda x: (x[0], x[1]))
-d = a[0][0]
-res_2 = d
-res = 1
-i = 1
-print(*a)
-while i < n:
-    if d <= a[i][1]:
-        res += 1
-        d = a[i][0]
-        print(d)
-    i += 1
+a.sort(key=lambda x: -x[1])
 
-print(res, res_2)
+print(*a, sep='\n')
+c = 1
+p = None
+t = a[0]
+for el in a:
+    if t[1] >= el[0]:
+        c += 1
+        p = t
+        t = el
+print(c, max(filter(lambda x: x[0] <= p[1], a)))
