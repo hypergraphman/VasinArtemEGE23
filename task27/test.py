@@ -1,7 +1,2 @@
-import time
-
-k = time.time()
-l = 0
-for i in range(1_000_000):
-    l += 0
-print(time.time() - k)
+n, *a = map(int, open('27_B.txt').read().split())
+print(sum(a))
