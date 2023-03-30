@@ -14,7 +14,8 @@ def f(a, b, c, m):
     return any(moves) if (c + 1) % 2 == m % 2 else all(moves)
 
 
-for ib in range(1, win // 3):
+for ib in range(1, win // start):
     for im in range(1, 5):
         if f(start, ib, 0, im):
             print(ib, im)
+            break
